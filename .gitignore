@@ -4,3 +4,6 @@
 # vim
 *~
 *.swp
+
+# nix
+/result
