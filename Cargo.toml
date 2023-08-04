@@ -8,4 +8,10 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0.180", features = ["derive"] }
 serde_json = "1.0.104"
+thiserror = "1.0.44"
 toml = "0.7.6"
+lexopt = "0.3.0"
+
+[[bin]]
+name = "alap"
+path = "src/main.rs"

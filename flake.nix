@@ -54,7 +54,7 @@
 			});
 			packages = forAllSystems ({ pkgs }: {
 				default = pkgs.rustPlatform.buildRustPackage {
-					name = "ala-apply";
+					name = "alacritty-apply";
 					src = ./.;
 					cargoLock = {
 						lockFile = ./Cargo.lock;
