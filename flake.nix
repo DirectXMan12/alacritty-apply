@@ -20,10 +20,6 @@
 					rustToolchain = super.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
 						extensions = [ "rust-analyzer" "rust-src" "rust-docs" ];
 					});
-					rustPlatform = super.makeRustPlatform {
-						cargo = rustToolchain;
-						rustc = rustToolchain;
-					};
 				})
 			];
 
@@ -53,7 +49,10 @@
 				};
 			});
 			packages = forAllSystems ({ pkgs }: {
-				default = pkgs.rustPlatform.buildRustPackage {
+				default = (pkgs.makeRustPlatform {
+					cargo = pkgs.rustToolchain;
+					rustc = pkgs.rustToolchain;
+				}).buildRustPackage {
 					name = "alacritty-apply";
 					src = ./.;
 					cargoLock = {
